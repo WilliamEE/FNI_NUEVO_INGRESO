@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+body
+{
+    background: white;  
+}
+#contenido
+{
+    font-family: 'Montserrat', sans-serif;
+}
+.titulo
+{
+    text-align: left;
+    color: #034EA2;
+    font-size: 30px;
+}
+.img-fluid
+{ 
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+label
+{
+    margin-top: 1%; 
+    margin-bottom: 1%;
+    font-size: large;
+}
+.form-control
+{
+    width: 50%;
+}
+.list
+{
+    color: #5B5959;
+    font-size: medium;
+}
+#guardar
+{
+    font-size: large;
+    color: white;
+    background-color: #034EA2;
+    border-radius: 2px;
+}
+.green-input
+{
+    color: #198754;
+    border-color: #198754;;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #198754;;
+    outline: 0 none;
+}
+.red-input
+{
+    border-color: #dc3545;;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #dc3545;;
+    outline: 0 none;
+}

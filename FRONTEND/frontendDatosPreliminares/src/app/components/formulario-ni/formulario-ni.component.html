@@ -1,0 +1,157 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100&display=swap"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Poppins:wght@100&display=swap"
+    rel="stylesheet">
+<div class="col-md-12">
+    <img src="https://www.uees.edu.sv/Boletin/img_correo/openhouse2022.jpg" class="img-fluid " alt="Responsive image">
+</div>
+<header></header>
+
+<body>
+    <div class="container mt-5" id="contenido">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body text-centergit">
+                        <form [formGroup]="form" (ngSubmit)="solicitarFormulario()">
+                            <h3 class="titulo">Datos personales</h3>
+                            <div style="width: 200px; height: 4px; background-color: #E6BC00; margin-bottom: 1%;"></div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email">Correo electrónico</label>
+                                        <input  formControlName = "correo" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                            [class.is-invalid]="correo?.invalid &&  correo?.touched"
+                                            placeholder="Ingresa tu correo"
+                                            data-toggle="tooltip" data-placement="top" title="Campo requerido">
+                                        <div>
+                                            <small class="text-danger" *ngIf="correo?.errors?.required && correo?.touched">Este campo es requerido</small>
+                                        </div>  
+                                        <div>
+                                            <small class="text-danger" *ngIf="correo?.errors?.pattern && (correo?.dirty || correo?.touched)">Correo inválido</small>
+                                        </div>     
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="telefono">Teléfono</label>
+                                        <input formControlName = "telefono" class="form-control" id="telefono"
+                                            aria-describedby="emailHelp" placeholder="Ingresa tu número telefónico"
+                                            [class.is-invalid]="telefono?.invalid &&  telefono?.touched"
+                                            data-toggle="tooltip" data-placement="top" title="Campo requerido">
+                                            <div>
+                                                <small class="text-danger" *ngIf="telefono?.errors?.required && telefono?.touched">Este campo es requerido</small>
+                                            </div>
+                                            <div>
+                                                <small class="text-danger" *ngIf="telefono?.errors?.minlength">El mínimo de dígitos es 8</small>
+                                            </div>
+                                            <div>
+                                                <small class="text-danger" *ngIf="telefono?.errors?.pattern">Debe ser un número de teléfono</small>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="nombres">Nombre</label>
+                                        <input formControlName = "nombre" type="text" class="form-control" id="nombres"
+                                            aria-describedby="emailHelp" placeholder="Ingresa tus nombres"
+                                            [class.is-invalid]="nombre?.invalid &&  nombre?.touched"
+                                            data-toggle="tooltip" data-placement="top" title="Campo requerido">
+                                            <div>
+                                                <small class="text-danger" *ngIf="nombre?.errors?.required && nombre?.touched">Este campo es requerido</small>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="apellidos">Apellido</label>
+                                        <input formControlName = "apellido" type="text" class="form-control" id="apellidos"
+                                            aria-describedby="emailHelp" placeholder="Ingresa tus apellidos"
+                                            [class.is-invalid]="apellido?.invalid &&  apellido?.touched"
+                                            data-toggle="tooltip" data-placement="top" title="Campo requerido">
+                                            <div>
+                                                <small class="text-danger" *ngIf="apellido?.errors?.required && apellido?.touched">Este campo es requerido</small>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="fecNac">Fecha nacimiento</label>
+                                        <input formControlName = "fecha_nacimiento" type="date" class="form-control" id="fecNac" aria-describedby="emailHelp"
+                                        [class.is-invalid]="fecha_nacimiento?.invalid &&  fecha_nacimiento?.touched"
+                                        data-toggle="tooltip" data-placement="top" title="Campo requerido">
+                                        <div>
+                                            <small class="text-danger" *ngIf="fecha_nacimiento?.errors?.required && fecha_nacimiento?.touched">Este campo es requerido</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="carrera">Carrera de interés</label>
+                                        <select [(ngModel)]="valorCar" formControlName = "carrera_interes" class="form-select" id="carrera" data-live-search="true"
+                                        [class.is-invalid]="carrera_interes?.invalid &&  carrera_interes?.touched"
+                                        data-toggle="tooltip" data-placement="top" title="Campo requerido">
+                                            <option *ngFor="let carrera of carreras" [ngValue]="carrera.valor" [disabled]="carrera.deshabilitada"> {{ carrera.descripcion }}</option>   
+                                        </select>
+                                        <div>
+                                            <small class="text-danger" *ngIf="carrera_interes?.errors?.required && carrera_interes?.touched">Este campo es requerido</small>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="carrera">Carrera de interés</label>
+                                        <select [(ngModel)]="valorCar" formControlName = "carrera_interes" class="form-select" id="carrera" data-live-search="true"
+                                        [class.is-invalid]="carrera_interes?.invalid &&  carrera_interes?.touched"
+                                        data-toggle="tooltip" data-placement="top" title="Campo requerido">
+                                            <option selected disabled value="0">Seleccione una opción</option>
+                                            <!-- <option *ngFor="let carrera of carreras" [ngValue]="carrera.Nivcod" [disabled]="carrera.deshabilitada"> {{ carrera.descripcion }}</option>    -->
+                                            <option *ngFor="let carrera of carreras" [ngValue]="carrera.nivcod" [selected]=""> {{ carrera.nivdsc }}</option>
+                                        </select>
+                                        <div>
+                                            <small class="text-danger" *ngIf="carrera_interes?.errors?.required && carrera_interes?.touched">Este campo es requerido</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <h3 class="titulo"  style="margin-top: 1%;">Pasos a seguir</h3>
+                            <div style="width: 200px; height: 4px; background-color: #E6BC00; margin-bottom: 1%;"></div>
+
+                            <ol class="list">
+                                <li>Presiona el botón solicitar formulario que se encuentra después de los pasos a
+                                    seguir.
+                                </li>
+                                <li>Ingresa a tu correo eléctronico, el que proporcionaste en las casillas
+                                    anteriores,
+                                    en el
+                                    que
+                                    encontrarás un link para continuar completando tu información personal para el
+                                    CICLO 2021-2, recuerda que debes tener acceso al correo proporcionado.</li>
+                            </ol>
+                            <div class="row">
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Debes completar todos los campos">
+                                <div class="col-md-12" style="width: 100%; text-align: right;">
+                                    <button type="submit" class="btn btn-primary" id="guardar"
+                                    data-toggle="tooltip" data-placement="top" title="Debes completar todos los campos">Solicitar
+                                        formulario</button>
+                                </div>
+                            </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="bg-light text-center text-lg-start" style="margin-top: 1%;">
+    <div class="text-center p-3" style="background-color: #E6BC00; color:#034EA2;">
+        © 2021 Copyright:
+        <a class="text-dark" style="color:#034EA2;" href="https://www.uees.edu.sv/">Universidad Evangélica de El
+            Salvador</a>
+    </div>
+</footer>
